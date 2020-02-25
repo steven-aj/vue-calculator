@@ -17,12 +17,12 @@ export default class Output {
 
     invert() {
         let string = new String(this.result);
-        if (string.charAt(0) !== '-')
-            this.result = 0 - this.result;
-        else {
+        if (string.charAt(0) === '-') {
             let pos = string.slice(1, string.length);
             this.result = parseFloat( pos );
         }
+        else 
+            this.result = 0 - this.result;
     }
 
     percentage() {

@@ -23,14 +23,14 @@
          Display,
          Keypad
       },
-      mounted() {
-         this.input.setExpression('', '', '');
-      },
       data() {
          return {
             input: new Input(),
             output: new Output()
          }
+      },
+      mounted() {
+         this.input.setExpression('', '', '');
       },
       methods: {
          construct(value) {
@@ -62,8 +62,8 @@
          },
          calculate(expression) {
             if (this.input.leftSide !== '' && this.input.rightSide.length !== '') {
-               this.output.evaluate(expression).then(passed => {
-                  if (passed) 
+               this.output.evaluate(expression).then(success => {
+                  if (success) 
                      this.input.reset();
                   else
                      alert("Incomplete expression provided.");
@@ -85,7 +85,6 @@
    min-width: 260px;
    max-width: 1024px;
    box-shadow: 1rem calc(1rem * 1.816) calc(1rem * calc(2 * 1.816)) rgba(0,0,0, .3);
-   /* border-radius: 1rem; */
    overflow: hidden;
 }
 </style>
